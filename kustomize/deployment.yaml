@@ -15,7 +15,7 @@ spec:
         - name: ev-docker-hub
       containers:
         - name: grpctest
-          image: hub.expvent.com.cn:1111/public/grpctest:v0.1
+          image: hub.expvent.com.cn:1111/public/grpctest:v0.3
           resources:
             limits:
               memory: "128Mi"
