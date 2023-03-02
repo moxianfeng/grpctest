@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: grcptest-ingressroute
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: Host(`grpctest.default.svc`)
+      services:
+        - name: grpctest
+          namespace:  default
+          port: 9999
+          scheme: h2c
+          passHostHeader: true

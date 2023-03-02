@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpctest
+spec:
+  selector:
+    matchLabels:
+      app: grpctest
+  template:
+    metadata:
+      labels:
+        app: grpctest
+    spec:
+      imagePullSecrets:
+        - name: ev-docker-hub
+      containers:
+        - name: grpctest
+          image: hub.expvent.com.cn:1089/test/grpctest:v0.1
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          command:
+            - /grpctest
+            - server
+            - -p
+            - "9999"
+          ports:
+            - containerPort: 9999
