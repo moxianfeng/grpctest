@@ -23,8 +23,7 @@ spec:
   entryPoints:
     - scanner
   routes:
-    - kind: Rule
-      match: HostSNI(`*`)
+    - match: HostSNI(`*`)
       services:
         - name: grpctest
           namespace:  default
